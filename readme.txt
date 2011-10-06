@@ -100,7 +100,7 @@ Just [sign up with allopass](http://en.allopass.com/advert?from=sponsorship&targ
 
 [Click here](http://www.vitar.123.fr/wea-wp-easy-allopass-instructions-en/ "Click here") to view all instructions.
 
-[Cliquez-ici](http://www.vitar.123.fr/wea-wp-easy-allopass-instructions-fr/ "Cliquez-ici") pour voir les instructions en version française.
+[Cliquez-ici](http://www.vitar.123.fr/wea-wp-easy-allopass-instructions-fr/ "Cliquez-ici") pour voir les instructions en version "french".
 
 
 == Screenshots ==
