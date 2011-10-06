@@ -11,11 +11,11 @@ The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate 
 
 The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate **allopass payment solution** on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site.
 
-With WEA plugin, you can lock some content (**Documentation**, **Download link**, **Embedded Music/Video**, …) in your posts and pages by adding a simple shortcode. In the admin panel, you can easily setup unlimited product shortcodes. The admin panel allows you to see your realtime sales statistics.
+With WEA plugin, you can lock some content (**Documentation**, **Download link**, **Embedded Music/Video**, ...) in your posts and pages by adding a simple shortcode. In the admin panel, you can easily setup unlimited product shortcodes. The admin panel allows you to see your realtime sales statistics.
 
 **What is allopass?**
 
-Allopass is a great supplement to PayPal, Moneybookers and Google Checkout for digital content, games & downloads under $10. It’s also a global payment system with extensive geographic coverage.
+Allopass is a great supplement to PayPal, Moneybookers and Google Checkout for digital content, games & downloads under $10. It's also a global payment system with extensive geographic coverage.
 
 Allopass offers 6 different payment solutions:
 
@@ -24,11 +24,11 @@ Allopass offers 6 different payment solutions:
 * **Internet+**: Internet Service Provider direct debit (France only).
 * **Neosurf**: prepaid card available in all Neosurf points of sale.
 * **Credit/Debit Card**.
-* Electronic wallet : **HiPay**, **Dineromail**…
+* Electronic wallet : **HiPay**, **Dineromail**...
 
 **WEA plugin features**:
 
-* Integration based in simple shortcode **[allopass id="X"]** *...Your paid content...* **[allopass]** where “X” is your “product id” added in admin panel.
+* Integration based in simple shortcode **[allopass id="X"]** *...Your paid content...* **[allopass]** where "X" is your "product id" added in admin panel.
 * **Realtime sales statistics**: no cronjob or batch needed.
 * Posibility to **add**, **edit** or **delete product**.
 * Customizable text displayed to the left of your allopass payment button (you can use **HTML**).
@@ -36,31 +36,31 @@ Allopass offers 6 different payment solutions:
 * **No programming/scripting experience needed**; setup done via standard WP plugin installation steps.
 
 == Installation ==
-When you have finished plugin setup, you can configure the WEA (WordPress Easy Allopass) plugin in your blog’s Admin/Settings page. This screen can usually be found within the Admin pages (maybe toward the bottom) by clicking Settings -> **WP Easy Allopass**.
+When you have finished plugin setup, you can configure the WEA (WordPress Easy Allopass) plugin in your blog's Admin/Settings page. This screen can usually be found within the Admin pages (maybe toward the bottom) by clicking Settings -> **WP Easy Allopass**.
 
 = Setup your Allopass account: =
 
 1. Create your *FREE* [Allopass Merchant Account](http://en.allopass.com/advert?from=sponsorship&target=6413634 "Allopass Merchant Account"): (Already have an account? skip this step)
-2. Once logged in your [Allopass Merchant Account](http://en.allopass.com/advert?from=sponsorship&target=6413634 "Allopass Merchant Account"), add your own site in your allopass “[sites list](http://www.allopass.com/merchant/product?lc=en_US "sites list")”. Click the "**Add a new site**" button.
+2. Once logged in your [Allopass Merchant Account](http://en.allopass.com/advert?from=sponsorship&target=6413634 "Allopass Merchant Account"), add your own site in your allopass "[sites list](http://www.allopass.com/merchant/product?lc=en_US "sites list")". Click the "**Add a new site**" button.
 3. Add the product you want to sell with your site. In the section [My products](http://www.allopass.com/merchant/product?lc=en_US "My products"), Click the "**Add a new product**" button and enter informations about your product.
-4. When you have finished to add product in your allopass account. You can get the “**Product Id**” in the table (column “#auth”). *For example* **123456/789012/345678**.
+4. When you have finished to add product in your allopass account. You can get the "**Product Id**" in the table (column "#auth"). *For example* **123456/789012/345678**.
 
 **WARNING**: When you add new product on your allopass account, always set as **return URL: "http://www.Your_Site.com"**. After purchase, the WEA plugin will automatically redirect user to the page that he was visiting before.
 
 = Add "Product Id" in WEA Plugin: =
 
-In your wordpress’s Admin/Settings page:
+In your wordpress's Admin/Settings page:
 
-1. Click “Settings” -> “**WP Easy Allopass**”.
-2. Fill in the form named “**Add product**“.
-3. Enter the “**Product Id**” created in step 4 above. For example **123456/789012/345678**.
+1. Click "Settings" -> "**WP Easy Allopass**".
+2. Fill in the form named "**Add product**".
+3. Enter the "**Product Id**" created in step 4 above. For example **123456/789012/345678**.
 4. Enter the product description. This entry can be a text that explain to user how to buy your product.
-5. Click “**Add the product**” button.
+5. Click "**Add the product**" button.
 
 = Insert shortcode in post or page: =
 
-1. In your product list (“Settings” -> “**WP Easy Allopass**” – see the product list table), use the **column “shortcode”** to identify your **item id**: [allopass id="**X**"] … [/allopass] where **X=item Id**.
-2. Edit your post or page and insert the shortcode: [allopass id="**X**"] … [/allopass]
+1. In your product list ("Settings" -> "**WP Easy Allopass**" – see the product list table), use the **column "shortcode"** to identify your **item id**: [allopass id="**X**"] ... [/allopass] where **X=item Id**.
+2. Edit your post or page and insert the shortcode: [allopass id="**X**"] ... [/allopass]
 
 **NOTE**: You can insert unlimited product shortcodes in a single post/page.
 
