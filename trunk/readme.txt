@@ -28,7 +28,7 @@ Allopass offers 6 different payment solutions:
 
 **WEA plugin features**:
 
-* Integration based in simple shortcode **[allopass id="X"]** *...Your paid content...* **[allopass]** where "X" is your "product id" added in admin panel.
+* Integration based in simple shortcode **[allopass id="X"]** *...Your paid content...* **[/allopass]** where "X" is your "product id" added in admin panel.
 * **Realtime sales statistics**: no cronjob or batch needed.
 * Posibility to **add**, **edit** or **delete product**.
 * Customizable text displayed to the left of your allopass payment button (you can use **HTML**).
