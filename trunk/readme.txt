@@ -9,7 +9,7 @@ Stable tag: 3.2.1
 The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate allopass payment solution on your wordpress site.
 == Description ==
 
-The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate **allopass payment solution** on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site.
+The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate **allopass payment solution** on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site. See live demo [here](http://www.vitar.123.fr/wea-wordpress-easy-allopass-plugin-demo/ "here").
 
 With WEA plugin, you can lock some content (**Documentation**, **Download link**, **Embedded Music/Video**, ...) in your posts and pages by adding a simple shortcode. In the admin panel, you can easily setup unlimited product shortcodes. The admin panel allows you to see your realtime sales statistics.
 
