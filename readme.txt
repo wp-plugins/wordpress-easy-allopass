@@ -9,7 +9,7 @@ Stable tag: 3.2.1
 The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate allopass payment solution on your wordpress site.
 == Description ==
 
-The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate **allopass payment solution** on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site.
+The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate **allopass payment solution** on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site. See live demo [here](http://www.vitar.123.fr/wea-wordpress-easy-allopass-plugin-demo/ "here").
 
 With WEA plugin, you can lock some content (**Documentation**, **Download link**, **Embedded Music/Video**, ...) in your posts and pages by adding a simple shortcode. In the admin panel, you can easily setup unlimited product shortcodes. The admin panel allows you to see your realtime sales statistics.
 
@@ -28,7 +28,7 @@ Allopass offers 6 different payment solutions:
 
 **WEA plugin features**:
 
-* Integration based in simple shortcode **[allopass id="X"]** *...Your paid content...* **[allopass]** where "X" is your "product id" added in admin panel.
+* Integration based in simple shortcode **[allopass id="X"]** *...Your paid content...* **[/allopass]** where "X" is your "product id" added in admin panel.
 * **Realtime sales statistics**: no cronjob or batch needed.
 * Posibility to **add**, **edit** or **delete product**.
 * Customizable text displayed to the left of your allopass payment button (you can use **HTML**).
@@ -57,10 +57,11 @@ In your wordpress's Admin/Settings page:
 4. Enter the product description. This entry can be a text that explain to user how to buy your product.
 5. Click "**Add the product**" button.
 
+
 = Insert shortcode in post or page: =
 
-1. In your product list ("Settings" -> "**WP Easy Allopass**" -> see the product list table), use the **column "shortcode"** to identify your **item id**: [allopass id="**X**"] … [/allopass] where **X=item Id**.
-2. Edit your post or page and insert the shortcode: [allopass id="**X**"] … [/allopass]
+1. In your product list ("Settings" -> "**WP Easy Allopass**", see the product list table), use the **column "shortcode"** to identify your **item id**: [allopass id="**X**"] ... [/allopass] where **X=item Id**.
+2. Edit your post or page and insert the shortcode: [allopass id="**X**"] ... [/allopass]
 
 **NOTE**: You can insert unlimited product shortcodes in a single post/page.
 
@@ -100,7 +101,7 @@ Just [sign up with allopass](http://en.allopass.com/advert?from=sponsorship&targ
 
 [Click here](http://www.vitar.123.fr/wea-wp-easy-allopass-instructions-en/ "Click here") to view all instructions.
 
-[Cliquez-ici](http://www.vitar.123.fr/wea-wp-easy-allopass-instructions-fr/ "Cliquez-ici") pour voir les instructions en version "French".
+[Cliquez-ici](http://www.vitar.123.fr/wea-wp-easy-allopass-instructions-fr/ "Cliquez-ici") pour voir les instructions en version "french".
 
 
 == Screenshots ==
