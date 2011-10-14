@@ -378,7 +378,7 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 			  <td><div align="left"><?php echo $descr___ ?></div></td>
 			  <td><div align="left"><?php echo $date__ ?></div></td>
 			  <td><div align="center"><?php echo $stat ?></div></td>
-			  <td width="250"><div align="left"><code><?php echo '[allopass id="'.$row->id.'"] ... [/allopass]' ?></code></div></td>
+			  <td width="250"><div align="left"><code><input type='text' value='<?php echo '[allopass id="'.$row->id.'"] ... [/allopass]' ?>' readonly='readonly' style='width:240px'/></code></div></td>
 			  <td width="50">
 				  <a href="<?php echo $link."edit=".$row->id ?>" title="<?php echo WEA_TTL_EDIT ?>"><img src="<?php echo URL_WEA ?>image/edit.png" width="12" height="13" border="0" align="absmiddle"/></a>
 				  <a href="<?php echo $link."stats=".$row->id ?>" title="<?php echo WEA_TTL_STAT ?>"><img src="<?php echo URL_WEA ?>image/fiche.png" width="12" height="13" border="0" align="absmiddle"/></a>
@@ -424,7 +424,7 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><div align="left"><?php echo WEA_FREE_CONTENT ?>...<font color="#FF0000"><strong>[allopass id=&quot;X&quot;]</strong></font> <em>...<font color="#009900"><?php echo WEA_PAID_CONTENT ?></font>...</em> <font color="#FF0000"><strong>[/allopass]</strong></font>...<?php echo WEA_FREE_CONTENT ?>...</div></td>
+          <td><div align="left"><?php echo WEA_FREE_CONTENT ?> ... <font color="#FF0000"><strong><input type='text' value='[allopass id=&quot;X&quot;] ...<?php echo WEA_PAID_CONTENT ?>... [/allopass]' readonly='readonly' style='width:300px;text-align:center' /></strong></font> ... <?php echo WEA_FREE_CONTENT ?>...</div></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
