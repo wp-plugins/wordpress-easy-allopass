@@ -59,7 +59,7 @@ In your wordpress's Admin/Settings page:
 
 = Insert shortcode in post or page: =
 
-1. In your product list ("Settings" -> "**WP Easy Allopass**" – see the product list table), use the **column "shortcode"** to identify your **item id**: [allopass id="**X**"] … [/allopass] where **X=item Id**.
+1. In your product list ("Settings" -> "**WP Easy Allopass**" -> see the product list table), use the **column "shortcode"** to identify your **item id**: [allopass id="**X**"] … [/allopass] where **X=item Id**.
 2. Edit your post or page and insert the shortcode: [allopass id="**X**"] … [/allopass]
 
 **NOTE**: You can insert unlimited product shortcodes in a single post/page.
