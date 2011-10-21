@@ -263,7 +263,7 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 				$link = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?';
 				}
 		
-			$row = $wpdb->get_results("SELECT * FROM ".TBL_STAT." WHERE id = '".$_GET["stats"]."' LIMIT ".$debut.",".$nbr_par_page."");
+			$row = $wpdb->get_results("SELECT * FROM ".TBL_STAT." WHERE id = '".$_GET["stats"]."' LIMIT ".$debus.",".$nbr_par_page."");
 			foreach ($row as $row) 
 			{
 			// Date
