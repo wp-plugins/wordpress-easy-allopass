@@ -58,6 +58,7 @@ In your wordpress's Admin/Settings page:
 5. Click "**Add the product**" button.
 
 
+
 = Insert shortcode in post or page: =
 
 1. In your product list ("Settings" -> "**WP Easy Allopass**", see the product list table), use the **column "shortcode"** to identify your **item id**: [allopass id="**X**"] ... [/allopass] where **X=item Id**.
@@ -114,6 +115,8 @@ Just [sign up with allopass](http://en.allopass.com/advert?from=sponsorship&targ
 
 == Changelog ==
 
+= 1.0.8 =
+* Fix pagination bug when viewing more than 10 sales stats in dashboard (10/21/2011)
 = 1.0.7 =
 * Enable Admin to copy and paste shortcode directly in text format when editing post/page on wysiwyg editor.(To avoid html error when copying shortcode) (10/14/2011)
 = 1.0.6 =
