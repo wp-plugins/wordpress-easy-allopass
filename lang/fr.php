@@ -45,7 +45,7 @@
 @define("WEA_NOTES_2", "Vous pouvez ins&eacute;rer <strong>plusieurs shortcode </strong> dans un m&ecirc;me article ou page.");
 @define("WEA_OTHER_NOTES_1", "Si le param&egrave;tre <strong>id</strong> n'est pas d&eacute;fini ou si aucun produit sur le site"); // Between link
 @define("WEA_OTHER_NOTES_2", "ne correspond &agrave; votre <strong>&quot;id Produit&quot;,</strong> Wordpress affichera un message d'erreur..."); // after link
-@define("WEA_SUPPORT_US", "Ce plugin est gratuit. Mais nous retenons juste 10% de commissions pour entretenir le programme et le serveur propulsant le plugin.<br>Mais vous pouvez aussi t&eacute;l&eacute;charger la <a href='http://www.vitar.123.fr/wea-wp-easy-allopass-download/' target='_blank'>Version PRO</a>. (Vous recevez 100% de vos gains et b&eacute;n&eacute;ficiez d'autres avantages et supports)");
+@define("WEA_SUPPORT_US", "Ce plugin est gratuit. Mais vous pouvez aussi t&eacute;l&eacute;charger la <a href='http://www.vitar.123.fr/wea-wp-easy-allopass-download/' target='_blank'>Version PRO</a>.<br>(Cette version PRO vous permettra de recevoir plus de gain et de b&eacute;n&eacute;ficier d'autres avantages et supports)");
 @define("WEA_MSG_ADD_SUCCESS", "Produit ajout&eacute; ! R&eacute;f :");
 @define("WEA_MSG_ADD_ERROR", "Veuillez entrer un id Allopass valide !");
 @define("WEA_MSG_UPD_SUCCESS", "Produit mis &agrave; jour ! R&eacute;f :");

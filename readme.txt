@@ -115,6 +115,8 @@ Just [sign up with allopass](http://en.allopass.com/advert?from=sponsorship&targ
 
 == Changelog ==
 
+= 1.0.9 =
+* Minor language file corrections (10/21/2011)
 = 1.0.8 =
 * Fix pagination bug when viewing more than 10 sales stats in dashboard (10/21/2011)
 = 1.0.7 =

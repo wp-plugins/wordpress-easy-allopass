@@ -45,7 +45,7 @@
 @define("WEA_NOTES_2", "You can insert <strong>several shortcodes</strong> in a single post or page.");
 @define("WEA_OTHER_NOTES_1", "If the parameter <strong>id</strong> is not defined or no product at"); // Between link
 @define("WEA_OTHER_NOTES_2", "corresponds to your <strong>&quot;Product Id&quot;,</strong> WordPress will display an error code..."); // after link
-@define("WEA_SUPPORT_US", "This plugin is free for use. But we retain just 10% of commission to maintain the program and its server.<br>You can also download the <a href='http://www.vitar.123.fr/wea-wp-easy-allopass-download/' target='_blank'>Pro version</a>. (You will receive 100% of your profits and will enjoy other benefits and supports)");
+@define("WEA_SUPPORT_US", "This plugin is free for use. But you can also download the <a href='http://www.vitar.123.fr/wea-wp-easy-allopass-download/' target='_blank'>Pro version</a>.<br>(The PRO version allows you to increase your profits and enjoy other benefits and FREE support.)");
 @define("WEA_MSG_ADD_SUCCESS", "Product added! Ref:");
 @define("WEA_MSG_ADD_ERROR", "Please enter a valid Product Id!");
 @define("WEA_MSG_UPD_SUCCESS", "Product Info updated! Ref :");
