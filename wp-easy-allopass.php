@@ -5,7 +5,7 @@ Plugin URI: http://www.vitar.123.fr
 Description: The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate allopass payment solution on your wordpress site. Allopass is a great supplement to PayPal and Google Checkout to sell digital content on your wordpress site. Allopass offers 6 different payment solutions: *Audiotel: surcharged phone call - SMS +: surcharged SMS - Internet+: Internet Service Provider direct debit (France only) - Neosurf: prepaid card available in all Neosurf points of sale - Credit/Debit Card - Electronic wallet : HiPay, Dineromail
 Author: Hasiniaina Ragaby 
 Author URI:  http://www.vitar.123.fr
-Version: 1.0.9
+Version: 1.0.10
 	Copyright 2011  H. Ragaby  (email : hragaby@hotmail.com)
 
     This program is free software; you can redistribute it and/or modify
@@ -34,6 +34,16 @@ Version: 1.0.9
 global $wpdb;
 @define("TBL_PROD",$wpdb->prefix ."weallopass_prod");
 @define("TBL_STAT",$wpdb->prefix ."weallopass_stat");
+
+// SSL ON or OFF
+if($_SERVER['HTTPS'] != 'on')
+	{
+        $protocol = "http://";
+    }
+	else
+	{
+        $protocol = "https://";
+    }	
 
 register_activation_hook(__FILE__,'WEA_init');
 
@@ -80,11 +90,11 @@ function WEA_redirect()
 	if (isset($_GET["RECALL"]) and $_GET["RECALL"]!="")
 		{
 		setcookie("POST_".$PAGE."_".$SECTION,$_GET["RECALL"],time()+3600*24,"/");
-		header( "Location: http://".$_SERVER['HTTP_HOST']."/?p=$PAGE&s=$SECTION&ok=".$_GET["RECALL"] );
+		header( "Location: ".$protocol.$_SERVER['HTTP_HOST']."/?p=$PAGE&s=$SECTION&ok=".$_GET["RECALL"] );
 		}
 		else
 		{
-		header( "Location: http://".$_SERVER['HTTP_HOST']."/?p=$PAGE&s=$SECTION" );
+		header( "Location: ".$protocol.$_SERVER['HTTP_HOST']."/?p=$PAGE&s=$SECTION" );
 		}
 	exit();
 }
@@ -146,7 +156,7 @@ function LCK_allopass($atts, $content)
 		
 			if (isset($_GET["ok"]) and isset($_GET["s"]) and $_GET["s"]==$id)
 				{
-					$return_url__ = "http://".$_SERVER['HTTP_HOST'];
+					$return_url__ = $protocol.$_SERVER['HTTP_HOST'];
 					if (isset($_COOKIE["POST_".$page."_".$id]) and file_get_contents(URL_WES . "wea-verif.php?id=$id_allopass&return_url=".urlencode($return_url__)."&code=" . $_GET["ok"]) == 1)
 						{
 						// Update stats for post

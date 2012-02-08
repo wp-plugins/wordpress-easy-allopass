@@ -3,8 +3,8 @@ Contributors: Hasiniaina Ragaby
 Donate link: http://www.vitar.123.fr/
 Tags: Allopass, Sale, Product, Post, Page, Quick Post, Earn money, Monetize, Paypal, Moneybookers, Shortcode
 Requires at least: 2.6
-Tested up to: 3.2.1
-Stable tag: 3.2.1
+Tested up to: 3.3.1
+Stable tag: 3.3.1
 
 The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate allopass payment solution on your wordpress site.
 == Description ==
@@ -115,6 +115,9 @@ Just [sign up with allopass](http://en.allopass.com/advert?from=sponsorship&targ
 
 == Changelog ==
 
+= 1.0.10 =
+* Adding https support (02/08/2012)
+* Minor bug fixes. (02/08/2012)
 = 1.0.9 =
 * Minor language file corrections (10/21/2011)
 = 1.0.8 =

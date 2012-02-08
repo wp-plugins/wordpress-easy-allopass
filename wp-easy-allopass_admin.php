@@ -11,17 +11,17 @@ if (isset($_GET['edit']) and $_GET['edit'] != "")
 	$titre_box = WEA_MODIF;
 		if (http_build_query($_GET) != "")
 		{
-		$url_action = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&act=save';
+		$url_action = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&act=save';
 		$g__ = $_GET;
 		unset($g__["edit"]);
-		$url_cancel= "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
+		$url_cancel= $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
 		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".WEA_CANCEL."' onClick='window.location=\"".$url_cancel."\";' />";
 		$btn_retour= "<input class='button-primary' type='button' name='retour' value='".WEA_GOBACK."' onClick='window.location=\"".$url_cancel."\";' />";
 		}
 		else
 		{
-		$url_action = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?act=save';
-		$url_cancel= "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+		$url_action = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?act=save';
+		$url_cancel= $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".WEA_CANCEL."' onClick='window.location=\"".$url_cancel."\";' />";
 		}
 	}
@@ -29,7 +29,7 @@ if (isset($_GET['stats']))
 	{
 		$g__ = $_GET;
 		unset($g__["stats"]);
-		$url_retour= "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
+		$url_retour= $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
 		$btn_retour= "<input class='button-primary' type='button' name='retour' value='".WEA_GOBACK."' onClick='window.location=\"".$url_retour."\";' />";
 	}	
 if (isset($_GET['del']))
@@ -44,16 +44,16 @@ if (isset($_GET['del']))
 		{
 		$g__ = $_GET;
 		unset($g__["del"]);
-		$url_action = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
-		$url_cancel= "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
+		$url_action = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
+		$url_cancel= $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
 		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".WEA_CANCEL."' onClick='window.location=\"".$url_cancel."\";' />";
 		$btn_retour= "<input class='button-primary' type='button' name='retour' value='".WEA_GOBACK."' onClick='window.location=\"".$url_cancel."\";' />";
 		$hidden= "<input type=hidden name=del value=".$_GET['del'].">";
 		}
 		else
 		{
-		$url_action = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-		$url_cancel= "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+		$url_action = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+		$url_cancel= $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".WEA_CANCEL."' onClick='window.location=\"".$url_cancel."\";' />";
 		}	
 	}
@@ -105,24 +105,24 @@ foreach($_GET AS $key=>$value)
 
 if (http_build_query($_GET) != "")
 	{
-	$lien  = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&debut=';
-	$lien2 = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&debus=';
+	$lien  = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&debut=';
+	$lien2 = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&debus=';
 	}
 	else
 	{
-	$lien  = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?debut=';
-	$lien2 = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?debus=';
+	$lien  = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?debut=';
+	$lien2 = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?debus=';
 	}
 	
 if (http_build_query($_GET) != "")
 	{
-	$linkfr  = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&lang=fr';
-	$linken  = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&lang=en';
+	$linkfr  = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&lang=fr';
+	$linken  = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&lang=en';
 	}
 	else
 	{
-	$linkfr  = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?lang=fr';
-	$linken  = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?lang=en';
+	$linkfr  = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?lang=fr';
+	$linken  = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?lang=en';
 	}
 		
 $nbr_par_page = 10;
@@ -256,11 +256,11 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 			
 			if (http_build_query($get___) != "")
 				{
-				$link = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($get___).'&';
+				$link = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($get___).'&';
 				}
 				else
 				{
-				$link = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?';
+				$link = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?';
 				}
 		
 			$row = $wpdb->get_results("SELECT * FROM ".TBL_STAT." WHERE id = '".$_GET["stats"]."' LIMIT ".$debus.",".$nbr_par_page."");
@@ -347,11 +347,11 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 			
 			if (http_build_query($get___) != "")
 				{
-				$link = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($get___).'&';
+				$link = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($get___).'&';
 				}
 				else
 				{
-				$link = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?';
+				$link = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?';
 				}
 		
 			$row = $wpdb->get_results("SELECT * FROM ".TBL_PROD." WHERE id_prod <> 'DontDelete' LIMIT ".$debut.",".$nbr_par_page."");
