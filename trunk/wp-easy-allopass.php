@@ -38,11 +38,11 @@ global $wpdb;
 // SSL ON or OFF
 if($_SERVER['HTTPS'] != 'on')
 	{
-        $protocol = "http://";
+		@define("WEA_PROTOCOL","http://");
     }
 	else
 	{
-        $protocol = "https://";
+        @define("WEA_PROTOCOL","https://");
     }	
 
 register_activation_hook(__FILE__,'WEA_init');
@@ -90,11 +90,11 @@ function WEA_redirect()
 	if (isset($_GET["RECALL"]) and $_GET["RECALL"]!="")
 		{
 		setcookie("POST_".$PAGE."_".$SECTION,$_GET["RECALL"],time()+3600*24,"/");
-		header( "Location: ".$protocol.$_SERVER['HTTP_HOST']."/?p=$PAGE&s=$SECTION&ok=".$_GET["RECALL"] );
+		header( "Location: ".WEA_PROTOCOL.$_SERVER['HTTP_HOST']."/?p=$PAGE&s=$SECTION&ok=".$_GET["RECALL"] );
 		}
 		else
 		{
-		header( "Location: ".$protocol.$_SERVER['HTTP_HOST']."/?p=$PAGE&s=$SECTION" );
+		header( "Location: ".WEA_PROTOCOL.$_SERVER['HTTP_HOST']."/?p=$PAGE&s=$SECTION" );
 		}
 	exit();
 }
@@ -156,7 +156,7 @@ function LCK_allopass($atts, $content)
 		
 			if (isset($_GET["ok"]) and isset($_GET["s"]) and $_GET["s"]==$id)
 				{
-					$return_url__ = $protocol.$_SERVER['HTTP_HOST'];
+					$return_url__ = WEA_PROTOCOL.$_SERVER['HTTP_HOST'];
 					if (isset($_COOKIE["POST_".$page."_".$id]) and wp_remote_retrieve_body(wp_remote_get(URL_WES . "wea-verif.php?id=$id_allopass&return_url=".urlencode($return_url__)."&code=" . $_GET["ok"])) == 1)
 						{
 						// Update stats for post
