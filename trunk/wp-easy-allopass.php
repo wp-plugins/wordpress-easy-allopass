@@ -5,7 +5,7 @@ Plugin URI: http://www.vitar.123.fr
 Description: The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate allopass payment solution on your wordpress site. Allopass is a great supplement to PayPal and Google Checkout to sell digital content on your wordpress site. Allopass offers 6 different payment solutions: *Audiotel: surcharged phone call - SMS +: surcharged SMS - Internet+: Internet Service Provider direct debit (France only) - Neosurf: prepaid card available in all Neosurf points of sale - Credit/Debit Card - Electronic wallet : HiPay, Dineromail
 Author: Hasiniaina Ragaby 
 Author URI:  http://www.vitar.123.fr
-Version: 1.0.10
+Version: 2.0.0
 	Copyright 2011  H. Ragaby  (email : hragaby@hotmail.com)
 
     This program is free software; you can redistribute it and/or modify
@@ -76,7 +76,7 @@ if (isset($_GET["code"]) and $_GET["code"]!="") $_GET["RECALL"] = $_GET["code"];
 if ($_GET["DATAS"]!="")
 {
 	if (!isset($_GET["trxid"]) and !isset($_GET["transaction_id"]) ) $_GET["trxid"] = $_GET["transaction_id"] = "D";
-	add_action('get_header', 'WEA_redirect', 1);
+	add_action('init', 'WEA_redirect', 0);
 }
 
 add_action('admin_menu', 'WEA_allopass' );
@@ -146,7 +146,7 @@ function LCK_allopass($atts, $content)
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				  <tr>
 					<td valign="middle" bgcolor="#CCCCCC">'. nl2br($txt) .'</td>
-					<td width="160" valign="top"><div align="center">'.file_get_contents(URL_WES . "wp-easy-allopass_btn.php?page=$page&id=$id&id_allopass=$id_allopass&txt=$txt_allopass&lang=$lang").'</div></td>
+					<td width="160" valign="top"><div align="center">'. wp_remote_retrieve_body(wp_remote_get(URL_WES . "wp-easy-allopass_btn.php?page=$page&id=$id&id_allopass=$id_allopass&txt=$txt_allopass&lang=$lang")).'</div></td>
 				  </tr>
 				</table>
 			  </center>';
@@ -157,7 +157,7 @@ function LCK_allopass($atts, $content)
 			if (isset($_GET["ok"]) and isset($_GET["s"]) and $_GET["s"]==$id)
 				{
 					$return_url__ = $protocol.$_SERVER['HTTP_HOST'];
-					if (isset($_COOKIE["POST_".$page."_".$id]) and file_get_contents(URL_WES . "wea-verif.php?id=$id_allopass&return_url=".urlencode($return_url__)."&code=" . $_GET["ok"]) == 1)
+					if (isset($_COOKIE["POST_".$page."_".$id]) and wp_remote_retrieve_body(wp_remote_get(URL_WES . "wea-verif.php?id=$id_allopass&return_url=".urlencode($return_url__)."&code=" . $_GET["ok"])) == 1)
 						{
 						// Update stats for post
 						$sql = "INSERT INTO ".TBL_STAT." (codes, id, post, date, stats) VALUES ('".$_GET["ok"]."','".$id."','".$page."','".date('Ymd')."','O');";		
@@ -177,7 +177,7 @@ function LCK_allopass($atts, $content)
 				{
 				if ( isset($_COOKIE["POST_".$page."_".$id]))
 						{
-						if (file_get_contents(URL_WES . "wea-verif.php?id=$id_allopass&code=" . $_COOKIE["POST_".$page."_".$id]) == 1)
+						if (wp_remote_retrieve_body(wp_remote_get(URL_WES . "wea-verif.php?id=$id_allopass&code=" . $_COOKIE["POST_".$page."_".$id])) == 1)
 							{
 							$r_d = "<div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_BG_PAID_CONTENT."</em></b></div><br>";
 							$r_f = "<br><br><div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_END_PAID_CONTENT."</em></b></div>";								

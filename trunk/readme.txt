@@ -115,9 +115,12 @@ Just [sign up with allopass](http://en.allopass.com/advert?from=sponsorship&targ
 
 == Changelog ==
 
+= 2.0.0 =
+* Replacing file_get_contents() by wp_remote_get() (02/08/2012)
+* add_action('get_header', 'WEA_redirect', 0) => add_action('init', 'WEA_redirect', 0) to avoid error with other API.
 = 1.0.10 =
-* Adding https support (02/08/2012)
-* Minor bug fixes. (02/08/2012)
+* Adding https support (01/18/2012)
+* Minor bug fixes. (01/18/2012)
 = 1.0.9 =
 * Minor language file corrections (10/21/2011)
 = 1.0.8 =
