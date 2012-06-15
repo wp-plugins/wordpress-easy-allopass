@@ -13,7 +13,7 @@
 @define("WEA_AP_ACCOUNT", "your allopass account");
 @define("WEA_IDEXAMPLE", "Example ");
 @define("WEA_NEED_HELP", "Need Help?");
-@define("WEA_NOT_YET_AP", "Not yet an allopass account?");
+@define("WEA_NOT_YET_AP", "No allopass account?");
 @define("WEA_CLICK_HERE", "Click here");
 @define("WEA_DESCR_PROD", "Description");
 @define("WEA_DESCR_EXPL", "Default text that will be displayed at the left of the allopass button describing your protected content.");
@@ -37,11 +37,11 @@
 @define("WEA_TTL_DEL", "Delete");
 @define("WEA_NOT_YET_PROD", "You have not yet added product");
 @define("WEA_INSTRUCTION", "Shortcode");
-@define("WEA_TODO", "To protect content on one of your posts/pages, insert the following code:");
+@define("WEA_TODO", "To protect paid content on one of your posts/pages, insert the following code:");
 @define("WEA_FREE_CONTENT", "Free content");
 @define("WEA_PAID_CONTENT", "Protected content");
 @define("WEA_TTL_NOTES", "Notes:");
-@define("WEA_NOTES_1", "The parameter <strong>Id</strong> (<strong>X</strong> = numeric value) represents the id of your product. (See column &quot;shortcode&quot; in the table above).<br>This parameter is required.");
+@define("WEA_NOTES_1", "The parameter <strong>Id</strong> (<strong>X</strong> = numeric value) represents the id of your product. (See column &quot;shortcode&quot; in the above table).<br>This parameter is required.");
 @define("WEA_NOTES_2", "You can insert <strong>several shortcodes</strong> in a single post or page.");
 @define("WEA_OTHER_NOTES_1", "If the parameter <strong>id</strong> is not defined or no product at"); // Between link
 @define("WEA_OTHER_NOTES_2", "corresponds to your <strong>&quot;Product Id&quot;,</strong> WordPress will display an error code..."); // after link
@@ -52,7 +52,7 @@
 @define("WEA_MSG_UPD_ERROR", "Please enter a valid Product Id!");
 @define("WEA_MSG_DELPROD_1", "Product Ref :");
 @define("WEA_MSG_DELPROD_2", "deleted!");
-@define("WEA_DEFAULT_DESCR", "Please enter here the text describing your paid content");
+@define("WEA_DEFAULT_DESCR", "Please enter here the text description of your paid content");
 @define("WEA_BTN_ADDPROD", "Add the product");
 @define("WEA_TITLE_BOX", "Add product");
 @define("WEA_NOTES_BOX_1", "<b>Note</b>: When you add new product on your allopass account, always set as return URL");
