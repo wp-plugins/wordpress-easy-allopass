@@ -5,7 +5,7 @@ Plugin URI: http://www.vitar.123.fr
 Description: The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate allopass payment solution on your wordpress site. Allopass is a great supplement to PayPal and Google Checkout to sell digital content on your wordpress site. Allopass offers 6 different payment solutions: *Audiotel: surcharged phone call - SMS +: surcharged SMS - Internet+: Internet Service Provider direct debit (France only) - Neosurf: prepaid card available in all Neosurf points of sale - Credit/Debit Card - Electronic wallet : HiPay, Dineromail
 Author: Hasiniaina Ragaby 
 Author URI:  http://www.vitar.123.fr
-Version: 2.0.0
+Version: 2.0.1
 	Copyright 2011  H. Ragaby  (email : hragaby@hotmail.com)
 
     This program is free software; you can redistribute it and/or modify
