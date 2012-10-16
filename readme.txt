@@ -115,6 +115,8 @@ Just [sign up with allopass](http://en.allopass.com/advert?from=sponsorship&targ
 
 == Changelog ==
 
+= 3.0.1 =
+* Changing Plugin Server to default website www.vitar.123.fr (for code verification and redirection)
 = 3.0.0 =
 * Checking compatibility with Wordpress 3.4.2 => OK
 * Changing Plugin Server (for code verification and redirection)
