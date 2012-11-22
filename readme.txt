@@ -6,10 +6,10 @@ Requires at least: 2.6
 Tested up to: 3.4.2
 Stable tag: 3.4
 
-The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate allopass payment solution on your wordpress site.
+The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate allopass payment solution on your wordpress site.
 == Description ==
 
-The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate **allopass payment solution** on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site. See live demo [here](http://www.vitar.123.fr/wea-wordpress-easy-allopass-plugin-demo/ "here").
+The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate **allopass payment solution** on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site. See live demo [here](http://www.vitar.123.fr/wea-wordpress-easy-allopass-plugin-demo/ "here").
 
 With WEA plugin, you can lock some content (**Documentation**, **Download link**, **Embedded Music/Video**, ...) in your posts and pages by adding a simple shortcode. In the admin panel, you can easily setup unlimited product shortcodes. The admin panel allows you to see your realtime sales statistics.
 
@@ -34,6 +34,10 @@ Allopass offers 6 different payment solutions:
 * Customizable text displayed to the left of your allopass payment button (you can use **HTML**).
 * Two avalaible languages: **English / French**.
 * **No programming/scripting experience needed**; setup done via standard WP plugin installation steps.
+
+This WEA plugin is free for use. But we retain just 10% of commission per sale in free version.
+You can also download the [Pro version](http://www.vitar.123.fr/wea-wp-easy-allopass-download/ "Pro version").
+(The PRO version allows you to increase your profits and enjoy other benefits and FREE support.)
 
 == Installation ==
 When you have finished plugin setup, you can configure the WEA (WordPress Easy Allopass) plugin in your blog's Admin/Settings page. This screen can usually be found within the Admin pages (maybe toward the bottom) by clicking Settings -> **WP Easy Allopass**.
@@ -104,6 +108,12 @@ Just [sign up with allopass](http://en.allopass.com/advert?from=sponsorship&targ
 
 [Cliquez-ici](http://www.vitar.123.fr/wea-wp-easy-allopass-instructions-fr/ "Cliquez-ici") pour voir les instructions en version "french".
 
+
+= Is this plugin free? =
+
+This WEA plugin is free for use. But we retain just 10% of commission per sale in free version.
+You can also download the [Pro version](http://www.vitar.123.fr/wea-wp-easy-allopass-download/ "Pro version").
+(The PRO version allows you to increase your profits and enjoy other benefits and FREE support.)
 
 == Screenshots ==
 
