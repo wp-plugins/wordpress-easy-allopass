@@ -241,7 +241,7 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 	  <tbody>
 	  <?php
 		$wpdb->flush();
-		$id_count = $wpdb->get_var( $wpdb->prepare("SELECT COUNT(*) FROM ".TBL_STAT." WHERE id = '".$_GET["stats"]."';") );
+		$id_count = $wpdb->get_var( $wpdb->prepare("SELECT COUNT(*) FROM ".TBL_STAT." WHERE id = %d" , $_GET["stats"] ) );
 		if ($id_count > 0)
 		{
 			// Manage link admin
@@ -332,7 +332,7 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 	  <tbody>
 	  <?php
 		$wpdb->flush();
-		$id_count = $wpdb->get_var( $wpdb->prepare("SELECT COUNT(*) FROM ".TBL_PROD." WHERE id_prod <> 'DontDelete';") );
+		$id_count = $wpdb->get_var( $wpdb->prepare("SELECT COUNT(*) FROM ".TBL_PROD." WHERE id_prod <> %s" , 'DontDelete' ) );
 		if ($id_count > 0)
 		{
 			// Manage link admin
@@ -359,7 +359,7 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 			{
 			// Stats
 			$stat = 0;
-			$stat = $wpdb->get_var( $wpdb->prepare("SELECT COUNT(*) FROM ".TBL_STAT." WHERE id = '".$row->id."';") );
+			$stat = $wpdb->get_var( $wpdb->prepare("SELECT COUNT(*) FROM ".TBL_STAT." WHERE id = %d" , $row->id ) );
 			
 			// Date
 			$Y__ = substr($row->last_update, 0, 4);
