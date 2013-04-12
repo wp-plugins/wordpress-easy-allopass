@@ -5,7 +5,7 @@ Plugin URI: http://www.vitar.123.fr
 Description: The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate allopass payment solution on your wordpress site. Allopass is a great supplement to PayPal and Google Checkout to sell digital content on your wordpress site. Allopass offers 6 different payment solutions: *Audiotel: surcharged phone call - SMS +: surcharged SMS - Internet+: Internet Service Provider direct debit (France only) - Neosurf: prepaid card available in all Neosurf points of sale - Credit/Debit Card - Electronic wallet : HiPay, Dineromail
 Author: Hasiniaina Ragaby 
 Author URI:  http://www.vitar.123.fr
-Version: 3.0.2
+Version: 3.3.0
 	Copyright 2011  H. Ragaby  (email : hragaby@hotmail.com)
 
     This program is free software; you can redistribute it and/or modify
@@ -152,7 +152,7 @@ function LCK_allopass($atts, $content)
 			  </center>';
 			  
 		// For demonstration
-		if ($id == 0) $r = '[allopass id="X"]'.$content.'[/allopass]';
+		if ($id == 0) $r = '[allopass id="X"]'.do_shortcode($content).'[/allopass]';
 		
 			if (isset($_GET["ok"]) and isset($_GET["s"]) and $_GET["s"]==$id)
 				{
@@ -164,7 +164,7 @@ function LCK_allopass($atts, $content)
 						$wpdb->query($sql);
 						$r_d = "<div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_BG_PAID_CONTENT."</em></b></div><br>";
 						$r_f = "<br><br><div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_END_PAID_CONTENT."</em></b></div>";						
-						$r = $r_d.$content.$r_f;
+						$r = $r_d.do_shortcode($content).$r_f;
 						}
 						else
 						{
@@ -181,7 +181,7 @@ function LCK_allopass($atts, $content)
 							{
 							$r_d = "<div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_BG_PAID_CONTENT."</em></b></div><br>";
 							$r_f = "<br><br><div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_END_PAID_CONTENT."</em></b></div>";								
-							$r = $r_d.$content.$r_f;
+							$r = $r_d.do_shortcode($content).$r_f;
 							}
 							else
 							{
