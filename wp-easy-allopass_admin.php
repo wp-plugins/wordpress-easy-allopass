@@ -7,22 +7,22 @@ if (isset($_GET['edit']) and $_GET['edit'] != "")
 	$re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['edit']."';");
 	$id_allopass = $re_->id_prod;
 	$txt_allopass = stripslashes($re_->prod_descr);
-	$btn_action = WEA_SAVE;
-	$titre_box = WEA_MODIF;
+	$btn_action = __( 'Save Changes', 'wp-easy-allopass' );
+	$titre_box = __( 'Edit product', 'wp-easy-allopass' );
 		if (http_build_query($_GET) != "")
 		{
 		$url_action = WEA_PROTOCOL.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($_GET).'&act=save';
 		$g__ = $_GET;
 		unset($g__["edit"]);
 		$url_cancel= WEA_PROTOCOL.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
-		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".WEA_CANCEL."' onClick='window.location=\"".$url_cancel."\";' />";
-		$btn_retour= "<input class='button-primary' type='button' name='retour' value='".WEA_GOBACK."' onClick='window.location=\"".$url_cancel."\";' />";
+		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".__( 'Cancel', 'wp-easy-allopass' )."' onClick='window.location=\"".$url_cancel."\";' />";
+		$btn_retour= "<input class='button-primary' type='button' name='retour' value='".__( 'Return to setup', 'wp-easy-allopass' )."' onClick='window.location=\"".$url_cancel."\";' />";
 		}
 		else
 		{
 		$url_action = WEA_PROTOCOL.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']. '?act=save';
 		$url_cancel= WEA_PROTOCOL.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".WEA_CANCEL."' onClick='window.location=\"".$url_cancel."\";' />";
+		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".__( 'Cancel', 'wp-easy-allopass' )."' onClick='window.location=\"".$url_cancel."\";' />";
 		}
 	}
 if (isset($_GET['stats']))
@@ -30,15 +30,15 @@ if (isset($_GET['stats']))
 		$g__ = $_GET;
 		unset($g__["stats"]);
 		$url_retour= WEA_PROTOCOL.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
-		$btn_retour= "<input class='button-primary' type='button' name='retour' value='".WEA_GOBACK."' onClick='window.location=\"".$url_retour."\";' />";
+		$btn_retour= "<input class='button-primary' type='button' name='retour' value='".__( 'Return to setup', 'wp-easy-allopass' )."' onClick='window.location=\"".$url_retour."\";' />";
 	}	
 if (isset($_GET['del']))
 	{
 	$re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['del']."';");
 	$id_allopass = $re_->id_prod;
 	$txt_allopass = stripslashes($re_->prod_descr);
-	$btn_action = WEA_DEL;
-	$titre_box = WEA_DEL2;
+	$btn_action = __( 'Delete product', 'wp-easy-allopass' );
+	$titre_box = __( 'Delete product', 'wp-easy-allopass' );
 	$disabled='readonly=readonly';
 		if (http_build_query($_GET) != "")
 		{
@@ -46,15 +46,15 @@ if (isset($_GET['del']))
 		unset($g__["del"]);
 		$url_action = WEA_PROTOCOL.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
 		$url_cancel= WEA_PROTOCOL.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?' . http_build_query($g__);
-		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".WEA_CANCEL."' onClick='window.location=\"".$url_cancel."\";' />";
-		$btn_retour= "<input class='button-primary' type='button' name='retour' value='".WEA_GOBACK."' onClick='window.location=\"".$url_cancel."\";' />";
+		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".__( 'Cancel', 'wp-easy-allopass' )."' onClick='window.location=\"".$url_cancel."\";' />";
+		$btn_retour= "<input class='button-primary' type='button' name='retour' value='".__( 'Return to setup', 'wp-easy-allopass' )."' onClick='window.location=\"".$url_cancel."\";' />";
 		$hidden= "<input type=hidden name=del value=".$_GET['del'].">";
 		}
 		else
 		{
 		$url_action = WEA_PROTOCOL.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 		$url_cancel= WEA_PROTOCOL.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".WEA_CANCEL."' onClick='window.location=\"".$url_cancel."\";' />";
+		$btn_cancel= "<input class='button-secondary' type='button' name='cancel' value='".__( 'Cancel', 'wp-easy-allopass' )."' onClick='window.location=\"".$url_cancel."\";' />";
 		}	
 	}
 		
@@ -132,7 +132,7 @@ $id_count = 0;
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td colspan="2" valign="middle"><div id="icon-options-general" class="icon32"></div>
-    <h2><?php echo WEA_PLUGIN ?></h2></td>
+    <h2><?php _e( 'WP Easy Allopass', 'wp-easy-allopass' ) ?></h2></td>
   </tr>
 <?php if ($btn_retour!="")
  {
@@ -160,34 +160,34 @@ $id_count = 0;
 	<thead>
       <tr>
         <th><div align="left"><strong><?php echo $titre_box ?></strong></div></th>
-        <th><div align="right"><?php echo WEA_CHOOSELANG ?>&nbsp;&nbsp;<a href="<?php echo $linkfr ?>"><img src="<?php echo URL_WEA ?>image/fr.gif" width="23" height="16" border="0" align="absmiddle"></a>&nbsp;&nbsp;<a href="<?php echo $linken ?>"><img src="<?php echo URL_WEA ?>image/en.gif" width="23" height="16" border="0" align="absmiddle"></a></div></th>
+        <th><div align="right">&nbsp;</div></th>
       </tr>
     </thead>
 	<tbody>
       <tr>
-        <td width="25%"><div align="left"><?php echo WEA_YOUR_PROD_ID ?>: </div></td>
+        <td width="25%"><div align="left"><?php _e( 'Your product Id', 'wp-easy-allopass' ) ?>: </div></td>
         <td width="75%"><div align="left"><input type=text name=id_allopass value="<?php echo $id_allopass ?>" style='width:200px' <?php echo $disabled ?>></div></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><div align="left"><em> <?php echo WEA_ID_AVLBL_ON ?> <a href="http://<?php echo $lang ?>.allopass.com/advert?from=sponsorship&target=1605852" target="_blank"><?php echo WEA_AP_ACCOUNT ?></a>.<br />
-  <?php echo WEA_IDEXAMPLE ?>: </em><font color='#000080'>123456</font>/<font color='#008000'>789012</font>/<font color='#FF0000'>3456789</font> &lt;&lt; <a href="<?php echo URL_HELP.$lang."/" ?>" target="_blank"><?php echo WEA_NEED_HELP ?></a></div></td>
+        <td><div align="left"><em> <?php _e( 'Id Product available on', 'wp-easy-allopass' ) ?> <a href="http://<?php echo $lang ?>.allopass.com/advert?from=sponsorship&target=1605852" target="_blank"><?php _e( 'your allopass account', 'wp-easy-allopass' ) ?></a>.<br />
+  <?php _e( 'Example ', 'wp-easy-allopass' ) ?>: </em><font color='#000080'>123456</font>/<font color='#008000'>789012</font>/<font color='#FF0000'>3456789</font> &lt;&lt; <a href="<?php echo URL_HELP.$lang."/" ?>" target="_blank"><?php _e( 'Need Help?', 'wp-easy-allopass' ) ?></a></div></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><div align="left"><?php echo WEA_NOT_YET_AP ?> <a href="http://<?php echo $lang ?>.allopass.com/advert?from=sponsorship&target=1605852" target="_blank"><?php echo WEA_CLICK_HERE ?></a>.</div></td>
+        <td><div align="left"><?php _e( 'No allopass account?', 'wp-easy-allopass' ) ?> <a href="http://<?php echo $lang ?>.allopass.com/advert?from=sponsorship&target=1605852" target="_blank"><?php _e( 'Click here', 'wp-easy-allopass' ) ?></a>.</div></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td valign="top"><div align="left"><?php echo WEA_DESCR_PROD ?>: </div></td>
+        <td valign="top"><div align="left"><?php _e( 'Description', 'wp-easy-allopass' ) ?>: </div></td>
         <td><textarea name=txt_allopass style='width:95%;height:60px;text-weight:bolder' <?php echo $disabled ?>><?php echo $txt_allopass?></textarea></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><div align="left"><em><?php echo WEA_DESCR_EXPL ?></em></div></td>
+        <td><div align="left"><em><?php _e( 'Default text that will be displayed at the left of the allopass button describing your protected content.', 'wp-easy-allopass' ) ?></em></div></td>
       </tr>
       
       <tr>
@@ -199,7 +199,7 @@ $id_count = 0;
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2"><em><?php echo WEA_NOTES_BOX_1 ?>: <font color="#FF0000"><strong>&quot;<?php echo get_bloginfo('siteurl'); ?>&quot;</strong></font>. <?php echo WEA_NOTES_BOX_2 ?></em></td>
+        <td colspan="2"><em><?php _e( '<b>Note</b>: When you add new product on your allopass account, always set as return URL', 'wp-easy-allopass' ) ?>: <font color="#FF0000"><strong>&quot;<?php echo get_bloginfo('siteurl'); ?>&quot;</strong></font>. <?php _e( 'After purchase, the WEA plugin will automatically redirect the user to the page that he was visiting before.', 'wp-easy-allopass' ) ?></em></td>
         </tr>
     </tbody>  
     </table>
@@ -227,14 +227,14 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 	<table class="widefat" width="100%">
 	  <thead>
 	    <tr>
-          <th colspan="6"><div align="left"><strong><?php echo WEA_STATS ?> </strong>(<?php echo WEA_REF ?> : <?php echo $re_->id_prod ?>)</div></th>
+          <th colspan="6"><div align="left"><strong><?php _e( 'Product Sales Statistics', 'wp-easy-allopass' ) ?> </strong>(<?php _e( 'Ref ', 'wp-easy-allopass' ) ?> : <?php echo $re_->id_prod ?>)</div></th>
         </tr>
         <tr>
-          <th><div align="left"><?php echo WEA_NUMBER ?></div></th>
-          <th><div align="left"><?php echo WEA_AP_CODE ?></div></th>
-          <th><div align="left"><?php echo WEA_DATE ?></div></th>
-          <th><div align="center"><?php echo WEA_ID_POST ?></div></th>
-          <th width="180"><div align="center"><?php echo WEA_STATUT ?></div></th>
+          <th><div align="left"><?php _e( 'N&deg;', 'wp-easy-allopass' ) ?></div></th>
+          <th><div align="left"><?php _e( 'Allopass code', 'wp-easy-allopass' ) ?></div></th>
+          <th><div align="left"><?php _e( 'Date', 'wp-easy-allopass' ) ?></div></th>
+          <th><div align="center"><?php _e( 'Post Id', 'wp-easy-allopass' ) ?></div></th>
+          <th width="180"><div align="center"><?php _e( 'Status (O=Ok)', 'wp-easy-allopass' ) ?></div></th>
           <th width="50">&nbsp;</th>
         </tr>
 	  </thead>
@@ -290,7 +290,7 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 		    ?>
 			<tr>
 			  <td colspan="6"><div align="center"><br>
-			  <?php echo WEA_NOT_YET_SALE ?><br>
+			  <?php _e( 'There are currently no sales for this product', 'wp-easy-allopass' ) ?><br>
 			  &nbsp;</div></td>
 			</tr>
 		    <?php 
@@ -317,15 +317,15 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 	  <table class="widefat" width="100%">
 	  <thead>
 	    <tr>
-          <th colspan="7"><div align="left"><strong><?php echo WEA_YOUR_PROD_LIST ?></strong></div></th>
+          <th colspan="7"><div align="left"><strong><?php _e( 'Your products list', 'wp-easy-allopass' ) ?></strong></div></th>
         </tr>
         <tr>
-          <th><?php echo WEA_ID ?></th>
-          <th width="160"><?php echo WEA_ID_PROD ?></th>
-          <th><?php echo WEA_DESCRIPTION ?></th>
-          <th><?php echo WEA_DATE_UPDATE ?></th>
-          <th><div align="center"><?php echo WEA_SALE?></div></th>
-          <th width="250"><?php echo WEA_SHORTCODE ?></th>
+          <th><?php _e( 'id', 'wp-easy-allopass' ) ?></th>
+          <th width="160"><?php _e( 'Product Id', 'wp-easy-allopass' ) ?></th>
+          <th><?php _e( 'Description', 'wp-easy-allopass' ) ?></th>
+          <th><?php _e( 'Last update', 'wp-easy-allopass' ) ?></th>
+          <th><div align="center"><?php _e( 'Sales', 'wp-easy-allopass' ) ?></div></th>
+          <th width="250"><?php _e( 'Shortcode', 'wp-easy-allopass' ) ?></th>
           <th width="50">&nbsp;</th>
         </tr>
 	  </thead>
@@ -380,9 +380,9 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 			  <td><div align="center"><?php echo $stat ?></div></td>
 			  <td width="250"><div align="left"><code><input type='text' value='<?php echo '[allopass id="'.$row->id.'"] ... [/allopass]' ?>' readonly='readonly' style='width:240px'/></code></div></td>
 			  <td width="50">
-				  <a href="<?php echo $link."edit=".$row->id ?>" title="<?php echo WEA_TTL_EDIT ?>"><img src="<?php echo URL_WEA ?>image/edit.png" width="12" height="13" border="0" align="absmiddle"/></a>
-				  <a href="<?php echo $link."stats=".$row->id ?>" title="<?php echo WEA_TTL_STAT ?>"><img src="<?php echo URL_WEA ?>image/fiche.png" width="12" height="13" border="0" align="absmiddle"/></a>
-				  <a href="<?php echo $link."del=".$row->id ?>" title="<?php echo WEA_TTL_DEL ?>"><img src="<?php echo URL_WEA ?>image/suppr.png" width="12" height="13" border="0" align="absmiddle"/></a>			  </td>
+				  <a href="<?php echo $link."edit=".$row->id ?>" title="<?php _e( 'Edit', 'wp-easy-allopass' ) ?>"><img src="<?php echo URL_WEA ?>image/edit.png" width="12" height="13" border="0" align="absmiddle"/></a>
+				  <a href="<?php echo $link."stats=".$row->id ?>" title="<?php _e( 'Statistics', 'wp-easy-allopass' ) ?>"><img src="<?php echo URL_WEA ?>image/fiche.png" width="12" height="13" border="0" align="absmiddle"/></a>
+				  <a href="<?php echo $link."del=".$row->id ?>" title="<?php _e( 'Delete', 'wp-easy-allopass' ) ?>"><img src="<?php echo URL_WEA ?>image/suppr.png" width="12" height="13" border="0" align="absmiddle"/></a>			  </td>
 			</tr>
 		    <?php 
 			}
@@ -391,7 +391,7 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
 		{
 		    ?>
 			<tr>
-			  <td colspan="7"><div align="center"><br><?php echo WEA_NOT_YET_PROD ?><br>&nbsp;</div></td>
+			  <td colspan="7"><div align="center"><br><?php _e( 'You have not yet added product', 'wp-easy-allopass' ) ?><br>&nbsp;</div></td>
 			</tr>
 		    <?php 
 	    }
@@ -413,33 +413,33 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
       <table class="widefat">
 	  <thead>
         <tr>
-          <th><div align="left"><strong><?php echo WEA_INSTRUCTION ?></strong></div></th>
+          <th><div align="left"><strong><?php _e( 'Shortcode', 'wp-easy-allopass' ) ?></strong></div></th>
         </tr>
 	  </thead>
 	  <tbody>
         <tr>
-          <td><div align="left"><?php echo WEA_TODO ?></div></td>
+          <td><div align="left"><?php _e( 'To protect paid content on one of your posts/pages, insert the following code:', 'wp-easy-allopass' ) ?></div></td>
           </tr>
         <tr>
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><div align="left"><?php echo WEA_FREE_CONTENT ?> ... <font color="#FF0000"><strong><input type='text' value='[allopass id=&quot;X&quot;] ...<?php echo WEA_PAID_CONTENT ?>... [/allopass]' readonly='readonly' style='width:300px;text-align:center' /></strong></font> ... <?php echo WEA_FREE_CONTENT ?>...</div></td>
+          <td><div align="left"><?php _e( 'Free content', 'wp-easy-allopass' ) ?> ... <font color="#FF0000"><strong><input type='text' value='[allopass id=&quot;X&quot;] ...<?php _e( 'Protected content', 'wp-easy-allopass' ) ?>... [/allopass]' readonly='readonly' style='width:300px;text-align:center' /></strong></font> ... <?php _e( 'Free content', 'wp-easy-allopass' ) ?>...</div></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><div align="left"><strong><?php echo WEA_TTL_NOTES ?></strong></div></td>
+          <td><div align="left"><strong><?php _e( 'Notes:', 'wp-easy-allopass' ) ?></strong></div></td>
         </tr>
         <tr>
           <td>
 		  	<div align="left">
-			<strong>&raquo; </strong><?php echo WEA_NOTES_1 ?><br>
-            <strong>&raquo; </strong><?php echo WEA_NOTES_2 ?>			</div>		  </td>
+			<strong>&raquo; </strong><?php _e( 'The parameter <strong>Id</strong> (<strong>X</strong> = numeric value) represents the id of your product. (See column &quot;shortcode&quot; in the above table).<br>This parameter is required.', 'wp-easy-allopass' ) ?><br>
+            <strong>&raquo; </strong><?php _e( 'You can insert <strong>several shortcodes</strong> in a single post or page.', 'wp-easy-allopass' ) ?>			</div>		  </td>
         </tr>
         <tr>
-          <td><div align="left"><?php echo WEA_OTHER_NOTES_1 ?> <a href="http://<?php echo $lang ?>.allopass.com/advert?from=sponsorship&amp;target=1605852" target="_blank">Allopass</a> <?php echo WEA_OTHER_NOTES_2 ?></div></td>
+          <td><div align="left"><?php _e( 'If the parameter <strong>id</strong> is not defined or no product at', 'wp-easy-allopass' ) ?> <a href="http://<?php echo $lang ?>.allopass.com/advert?from=sponsorship&amp;target=1605852" target="_blank">Allopass</a> <?php _e( 'corresponds to your <strong>&quot;Product Id&quot;,</strong> WordPress will display an error code...', 'wp-easy-allopass' ) ?></div></td>
         </tr>
 	  </tbody>
       </table>
@@ -449,7 +449,11 @@ $re_ = $wpdb->get_row("SELECT * FROM ".TBL_PROD." WHERE id='".$_GET['stats']."';
     <td colspan="2">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2"><?php echo WEA_SUPPORT_US ?></td>
+    <td colspan="2">
+	<?php _e( 'This plugin is free for use. But you can also download the ', 'wp-easy-allopass' ) ?>
+	<a href="<?php echo URL_WES ?>wea-wp-easy-allopass-download/" target="_blank">Pro Version</a><br>
+	<?php _e( '(The PRO Version allows you to increase your profits and enjoy other benefits and FREE support.)', 'wp-easy-allopass' )?>
+	</td>
   </tr>
 </table>
 </div>

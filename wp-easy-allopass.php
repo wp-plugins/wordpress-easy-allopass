@@ -1,11 +1,12 @@
 <?php
 /*
 Plugin Name: Wp Easy Allopass
-Plugin URI: http://www.vitar.123.fr
+Text Domain: wp-easy-allopass
+Plugin URI: http://www.gasy.prod.bz
 Description: The Wp Easy Allopass Plugin (WEA) is a free plugin that allows you to integrate allopass payment solution on your wordpress site. Allopass is a great supplement to PayPal and Google Checkout to sell digital content on your wordpress site. Allopass offers 6 different payment solutions: *Audiotel: surcharged phone call - SMS +: surcharged SMS - Internet+: Internet Service Provider direct debit (France only) - Neosurf: prepaid card available in all Neosurf points of sale - Credit/Debit Card - Electronic wallet : HiPay, Dineromail
 Author: Hasiniaina Ragaby 
-Author URI:  http://www.vitar.123.fr
-Version: 3.3.1
+Author URI:  http://www.gasy.prod.bz
+Version: 4.0.0
 	Copyright 2011  H. Ragaby  (email : hragaby@hotmail.com)
 
     This program is free software; you can redistribute it and/or modify
@@ -23,13 +24,13 @@ Version: 3.3.1
 */
 
 // Define Server Plugin (for code verification and redirection).
-@define("URL_WES","http://www.vitar.123.fr/");
+@define("URL_WES","http://www.gasy.prod.bz/");
 // Plugin dir URL
 @define("URL_WEA",plugin_dir_url( __FILE__ ));
 // Plugin Dirname
 @define("DIR_WEA",dirname(__FILE__)."/");
 // Plugin Setup Instructions
-@define("URL_HELP","http://www.vitar.123.fr/wea-wp-easy-allopass-instructions-");
+@define("URL_HELP","http://www.gasy.prod.bz/wea-wp-easy-allopass-instructions-");
 
 global $wpdb;
 @define("TBL_PROD",$wpdb->prefix ."weallopass_prod");
@@ -48,26 +49,16 @@ if($_SERVER['HTTPS'] != 'on')
 register_activation_hook(__FILE__,'WEA_init');
 
 // Manage user language
-$default_lang ="en";
-if (!isset($_GET["lang"]))
+function WEA_lang_init() 
 	{
-		$lang = get_post_meta(2, "wea_lang", true);
-		if ($lang=="")
-		{
-			$lang=$default_lang;
-			delete_post_meta(2,"wea_lang");
-			add_post_meta(2,"wea_lang", $lang);			
-		}
+	 $lang_dir = dirname( plugin_basename( __FILE__ ) ) . '/languages/' ;
+	 load_plugin_textdomain( 'wp-easy-allopass', false, $lang_dir );
 	}
-	else
-	{
-		$lang = $_GET["lang"];
-		if(!file_exists(DIR_WEA . "lang/".$lang.".php")) $lang=$default_lang;
-		delete_post_meta(2,"wea_lang");
-		add_post_meta(2,"wea_lang", $lang);
-		unset($_GET["lang"]);
-	}
-require_once(DIR_WEA . "lang/".$lang.".php");
+add_action('plugins_loaded', 'WEA_lang_init');
+
+$lang = "en";
+$b_lang = get_bloginfo('language');
+if ( $b_lang == 'fr-FR' ) $lang = "fr";
 
 if (isset($_GET["data"]) and $_GET["data"]!="") $_GET["DATAS"] = $_GET["data"];
 if (isset($_GET["codes"]) and $_GET["codes"]!="") $_GET["RECALL"] = $_GET["codes"];
@@ -78,6 +69,20 @@ if ($_GET["DATAS"]!="")
 	if (!isset($_GET["trxid"]) and !isset($_GET["transaction_id"]) ) $_GET["trxid"] = $_GET["transaction_id"] = "D";
 	add_action('init', 'WEA_redirect', 0);
 }
+
+// Menu & Shortcode & Setting Links
+function WEA_add_settings_link($links, $file)
+{
+	static $this_plugin;
+	if(!$this_plugin) $this_plugin = plugin_basename(__FILE__);
+	if( $file == $this_plugin )
+	{
+		$settings_link = '<a href="options-general.php?page=Wp-Easy-Allopass">'.__( 'Settings', 'wp-easy-allopass' ).'</a>';
+		$links = array_merge(array($settings_link), $links);
+	}
+	return $links;
+}
+add_filter('plugin_action_links', 'WEA_add_settings_link', 10, 2);
 
 add_action('admin_menu', 'WEA_allopass' );
 add_shortcode('allopass', 'LCK_allopass');
@@ -132,8 +137,11 @@ function WEA_init()
 // [allopass id="xxx"] [/allopass]
 function LCK_allopass($atts, $content)
 	{
-		$lang = get_post_meta(2, "wea_lang", true);
-		if ($lang=="") $lang="en";
+		//$lang = get_post_meta(2, "wea_lang", true);
+		//if ($lang=="") $lang="en";
+		$lang = "en";
+		$b_lang = get_bloginfo('language');
+		if ( $b_lang == 'fr-FR' ) $lang = "fr";
 		
 		global $wpdb;
 		$wpdb->flush();
@@ -145,9 +153,9 @@ function LCK_allopass($atts, $content)
 		$txt = stripslashes($re_->prod_descr);
 		
 		$r  = '<center>	
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<table width="100%">
 				  <tr>
-					<td valign="middle" bgcolor="#CCCCCC">'. nl2br($txt) .'</td>
+					<td valign="middle">'. nl2br($txt) .'</td>
 					<td width="160" valign="top"><div align="center">'. wp_remote_retrieve_body(wp_remote_get(URL_WES . "wp-easy-allopass_btn.php?page=$page&id=$id&id_allopass=$id_allopass&txt=$txt_allopass&lang=$lang")).'</div></td>
 				  </tr>
 				</table>
@@ -164,14 +172,14 @@ function LCK_allopass($atts, $content)
 						// Update stats for post
 						$sql = "INSERT INTO ".TBL_STAT." (codes, id, post, date, stats) VALUES ('".$_GET["ok"]."','".$id."','".$page."','".date('Ymd')."','O');";		
 						$wpdb->query($sql);
-						$r_d = "<div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_BG_PAID_CONTENT."</em></b></div><br>";
-						$r_f = "<br><br><div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_END_PAID_CONTENT."</em></b></div>";						
+						$r_d = "<div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".__( '-- Start unlocked content --', 'wp-easy-allopass' )."</em></b></div><br>";
+						$r_f = "<br><br><div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".__( '-- End unlocked content --', 'wp-easy-allopass' )."</em></b></div>";						
 						$r = $r_d.do_shortcode($content).$r_f;
 						}
 						else
 						{
-						$r_d = "<div style='color:#FF0000;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_WRN_ERROR_CODE."</em></b></div>";
-						$r_f = "<div style='color:#FF0000;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_WRN_END."</em></b></div>";
+						$r_d = "<div style='color:#FF0000;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".__( '-- Warning! Invalid code entered --', 'wp-easy-allopass' )."</em></b></div>";
+						$r_f = "<div style='color:#FF0000;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".__( '-- End message --', 'wp-easy-allopass' )."</em></b></div>";
 						$r =  $r_d.$r.$r_f;
 						}
 				}
@@ -181,14 +189,14 @@ function LCK_allopass($atts, $content)
 						{
 						if (wp_remote_retrieve_body(wp_remote_get(URL_WES . "wea-verif.php?id=$id_allopass&code=" . $_COOKIE["POST_".$page."_".$id])) == 1)
 							{
-							$r_d = "<div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_BG_PAID_CONTENT."</em></b></div><br>";
-							$r_f = "<br><br><div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_END_PAID_CONTENT."</em></b></div>";								
+							$r_d = "<div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".__( '-- Start unlocked content --', 'wp-easy-allopass' )."</em></b></div><br>";
+							$r_f = "<br><br><div style='color:#999999;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".__( '-- End unlocked content --', 'wp-easy-allopass' )."</em></b></div>";								
 							$r = $r_d.do_shortcode($content).$r_f;
 							}
 							else
 							{
-							$r_d = "<div style='color:#FF0000;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_WRN_EXPIRE_CODE."(&quot;".$_COOKIE["POST_".$page."_".$id]."&quot;)</em></b></div>";
-							$r_f = "<div style='color:#FF0000;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".WEA_WRN_END."</em></b></div>";							
+							$r_d = "<div style='color:#FF0000;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".__( '-- Warning! Access code expired or invalid ... --', 'wp-easy-allopass' )."(&quot;".$_COOKIE["POST_".$page."_".$id]."&quot;)</em></b></div>";
+							$r_f = "<div style='color:#FF0000;background-color:#FFFF99;text-align:center;padding:5px;border:solid 1px #000000'><b><em>".__( '-- End message --', 'wp-easy-allopass' )."</em></b></div>";							
 							$r = $r_d.$r.$r_f;
 							}
 						}
@@ -206,8 +214,11 @@ function WEA_allopass()
 
 function WEA_allopass_admin() 
 {
-	$lang = get_post_meta(2, "wea_lang", true);
-	if ($lang=="") $lang="en";
+	//$lang = get_post_meta(2, "wea_lang", true);
+	//if ($lang=="") $lang="en";
+	$lang = "en";
+	$b_lang = get_bloginfo('language');
+	if ( $b_lang == 'fr-FR' ) $lang = "fr";
 	
 	global $wpdb;
 	$wpdb->flush();
@@ -228,11 +239,11 @@ function WEA_allopass_admin()
 			{
 			$sql = "INSERT INTO ".TBL_PROD." (id_prod, prod_descr, last_update) VALUES ('".$_POST["id_allopass"]."','".addslashes($_POST["txt_allopass"])."','".date('Ymd')."');";		
 			$wpdb->query($sql);
-			echo '<div id="message" class="updated highlight"><p>'.WEA_MSG_ADD_SUCCESS.' <strong>'.$_POST["id_allopass"].'</strong></p></div>';
+			echo '<div id="message" class="updated highlight"><p>'.__( 'Product added! Ref:', 'wp-easy-allopass' ).' <strong>'.$_POST["id_allopass"].'</strong></p></div>';
 			}
 			else
 			{
-			echo '<div id="message" class="error"><p>'.WEA_MSG_ADD_ERROR.'</p></div>';
+			echo '<div id="message" class="error"><p>'.__( 'Please enter a valid Product Id!', 'wp-easy-allopass' ).'</p></div>';
 			}
 		}
 	}
@@ -246,11 +257,11 @@ function WEA_allopass_admin()
 			{
 			$sql = "UPDATE ".TBL_PROD." SET id_prod='".$_POST["id_allopass"]."', prod_descr='".addslashes($_POST["txt_allopass"])."', last_update='".date('Ymd')."' WHERE id='".$_GET["edit"]."';";		
 			$wpdb->query($sql);
-			echo '<div id="message" class="updated highlight"><p>'.WEA_MSG_UPD_SUCCESS.' <strong>'.$_POST["id_allopass"].'</strong></p></div>';
+			echo '<div id="message" class="updated highlight"><p>'.__( 'Product Info updated! Ref :', 'wp-easy-allopass' ).' <strong>'.$_POST["id_allopass"].'</strong></p></div>';
 			}
 			else
 			{
-			echo '<div id="message" class="error"><p>'.WEA_MSG_UPD_ERROR.'</p></div>';
+			echo '<div id="message" class="error"><p>'.__( 'Please enter a valid Product Id!', 'wp-easy-allopass' ).'</p></div>';
 			}
 		}
 	}
@@ -261,14 +272,14 @@ function WEA_allopass_admin()
 		{
 			$sql = "DELETE FROM ".TBL_PROD." WHERE id='".$_POST["del"]."';";		
 			$wpdb->query($sql);
-			echo '<div id="message" class="updated highlight"><p>'.WEA_MSG_DELPROD_1.' <strong>'.$_POST["id_allopass"].' '.WEA_MSG_DELPROD_2.'</strong></p></div>';
+			echo '<div id="message" class="updated highlight"><p>'.__( 'Product Ref :', 'wp-easy-allopass' ).' <strong>'.$_POST["id_allopass"].' '.__( 'deleted!', 'wp-easy-allopass' ).'</strong></p></div>';
 		}
 	}	
 	$id_allopass = "";
-	$txt_allopass = WEA_DEFAULT_DESCR;
-	$btn_action = WEA_BTN_ADDPROD;
+	$txt_allopass = __( 'Please enter here the text description of your paid content', 'wp-easy-allopass' );
+	$btn_action = __( 'Add the product', 'wp-easy-allopass' );
 	$url_action = "";
-	$titre_box = WEA_TITLE_BOX;
+	$titre_box = __( 'Add product', 'wp-easy-allopass' );
 	$btn_cancel ="";
 	$hidden ="";
 	$disabled = "";

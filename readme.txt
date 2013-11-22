@@ -1,15 +1,15 @@
 === Plugin Name ===
 Contributors: Hasiniaina Ragaby
-Donate link: http://www.vitar.123.fr/
+Donate link: http://www.gasy.prod.bz/
 Tags: Allopass, Sale, Product, Post, Page, Subscription, Membership, Earn money, Monetize, Paypal, SMS, Shortcode, Buddypress, Ajax
 Requires at least: 2.6
-Tested up to: 3.6.1
-Stable tag: 3.6.1
+Tested up to: 3.7.1
+Stable tag: 3.7.1
 
 The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate allopass payment solution on your wordpress site.
 == Description ==
 
-The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate **allopass payment solution** on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site. See live demo [here](http://www.vitar.123.fr/wea-wordpress-easy-allopass-plugin-demo/ "here").
+The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate **allopass payment solution** on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site. See live demo [here](http://www.gasy.prod.bz/wea-wordpress-easy-allopass-plugin-demo/ "here").
 
 With WEA plugin, you can lock some content (**Documentation**, **Download link**, **Embedded Music/Video**, ...) in your posts and pages by adding a simple shortcode. In the admin panel, you can easily setup unlimited product shortcodes. The admin panel allows you to see your realtime sales statistics.
 
@@ -36,7 +36,7 @@ Allopass offers 6 different payment solutions:
 * **No programming/scripting experience needed**; setup done via standard WP plugin installation steps.
 
 This WEA plugin is free for use. But we retain just 10% of commission per sale in free version.
-You can also download the [Pro version](http://www.vitar.123.fr/wea-wp-easy-allopass-download/ "Pro version").
+You can also download the [Pro version](http://www.gasy.prod.bz/wea-wp-easy-allopass-download/ "Pro version").
 (The PRO version allows you to increase your profits and enjoy other benefits and FREE support.)
 
 == Installation ==
@@ -104,15 +104,15 @@ Just [sign up with allopass](http://en.allopass.com/advert?from=sponsorship&targ
 
 = How do I implement the Allopass payment with Wp Easy Allopass plugin? =
 
-[Click here](http://www.vitar.123.fr/wea-wp-easy-allopass-instructions-en/ "Click here") to view all instructions.
+[Click here](http://www.gasy.prod.bz/wea-wp-easy-allopass-instructions-en/ "Click here") to view all instructions.
 
-[Cliquez-ici](http://www.vitar.123.fr/wea-wp-easy-allopass-instructions-fr/ "Cliquez-ici") pour voir les instructions en version "french".
+[Cliquez-ici](http://www.gasy.prod.bz/wea-wp-easy-allopass-instructions-fr/ "Cliquez-ici") pour voir les instructions en version "french".
 
 
 = Is this plugin free? =
 
 This WEA plugin is free for use. But we retain just 10% of commission per sale in free version.
-You can also download the [Pro version](http://www.vitar.123.fr/wea-wp-easy-allopass-download/ "Pro version").
+You can also download the [Pro version](http://www.gasy.prod.bz/wea-wp-easy-allopass-download/ "Pro version").
 (The PRO version allows you to increase your profits and enjoy other benefits and FREE support.)
 
 == Screenshots ==
@@ -125,6 +125,9 @@ You can also download the [Pro version](http://www.vitar.123.fr/wea-wp-easy-allo
 
 == Changelog ==
 
+= 4.0.0 =
+* The plugin become translatable
+* Changing Plugin Server to default website www.gasy.prod.bz (for code verification and redirection)
 = 3.3.1 =
 * Fixed redirection error (product page) when wordpress is installed in a subdirectory 
 = 3.3.0 =
