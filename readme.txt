@@ -3,8 +3,8 @@ Contributors: Hasiniaina Ragaby
 Donate link: http://www.gasy.prod.bz/
 Tags: Allopass, Sale, Product, Post, Page, Subscription, Membership, Earn money, Monetize, Paypal, SMS, Shortcode, Buddypress, Ajax
 Requires at least: 2.6
-Tested up to: 3.7.1
-Stable tag: 3.7.1
+Tested up to: 3.8
+Stable tag: 3.8
 
 The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate allopass payment solution on your wordpress site.
 == Description ==
@@ -125,6 +125,8 @@ You can also download the [Pro version](http://www.gasy.prod.bz/wea-wp-easy-allo
 
 == Changelog ==
 
+= 4.0.1 =
+* Checking compatibility with wordpress 3.8
 = 4.0.0 =
 * The plugin become translatable
 * Changing Plugin Server to default website www.gasy.prod.bz (for code verification and redirection)
