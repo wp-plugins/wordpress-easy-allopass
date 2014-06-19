@@ -1,21 +1,21 @@
 === Plugin Name ===
 Contributors: Hasiniaina Ragaby
 Donate link: http://www.gasy.prod.bz/
-Tags: Allopass, Sale, Product, Post, Page, Subscription, Membership, Earn money, Monetize, Paypal, SMS, Shortcode, Buddypress, Ajax
+Tags: Allopass, Hipay, Hipay mobile, Sale, Product, Post, Page, Subscription, Membership, Earn money, Monetize, Paypal, SMS, Shortcode, Buddypress, Ajax
 Requires at least: 2.6
-Tested up to: 3.8
-Stable tag: 3.8
+Tested up to: 3.9.1
+Stable tag: 3.9.1
 
-The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate allopass payment solution on your wordpress site.
+The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate allopass (HiPay Mobile) payment solution on your wordpress site.
 == Description ==
 
-The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate **allopass payment solution** on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site. See live demo [here](http://www.gasy.prod.bz/wea-wordpress-easy-allopass-plugin-demo/ "here").
+The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate **allopass payment solution** (HiPay Mobile) on your wordpress site. With WEA plugin, you can easily sell unlimited products in your posts and pages. It allows your visitor to buy directly digital contents from your site. See live demo [here](http://www.gasy.prod.bz/wea-wordpress-easy-allopass-plugin-demo/ "here").
 
 With WEA plugin, you can lock some content (**Documentation**, **Download link**, **Embedded Music/Video**, ...) in your posts and pages by adding a simple shortcode. In the admin panel, you can easily setup unlimited product shortcodes. The admin panel allows you to see your realtime sales statistics.
 
 **What is allopass?**
 
-Allopass is a great supplement to PayPal, Moneybookers and Google Checkout for digital content, games & downloads under $10. It's also a global payment system with extensive geographic coverage.
+Allopass is a great supplement to PayPal, Moneybookers and Google Checkout for digital content, games & downloads under $10. It's also a global payment system with extensive geographic coverage. Allopass became HiPay Mobile since 2014.
 
 Allopass offers 6 different payment solutions:
 
@@ -125,6 +125,9 @@ You can also download the [Pro version](http://www.gasy.prod.bz/wea-wp-easy-allo
 
 == Changelog ==
 
+= 4.0.2 =
+* Checking compatibility with wordpress 3.9.1
+* Allopass become HiPay Mobile 
 = 4.0.1 =
 * Checking compatibility with wordpress 3.8
 = 4.0.0 =
