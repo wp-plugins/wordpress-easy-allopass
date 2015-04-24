@@ -3,8 +3,8 @@ Contributors: Hasiniaina Ragaby
 Donate link: http://www.gasy.prod.bz/
 Tags: Allopass, Hipay, Hipay mobile, Sale, Product, Post, Page, Subscription, Membership, Earn money, Monetize, Paypal, SMS, Shortcode, Buddypress, Ajax
 Requires at least: 2.6
-Tested up to: 4.1.2
-Stable tag: 4.1.2
+Tested up to: 4.2
+Stable tag: 4.2
 
 The Wp Easy Allopass Plugin (WEA) is a plugin that allows you to integrate allopass (HiPay Mobile) payment solution on your wordpress site.
 == Description ==
